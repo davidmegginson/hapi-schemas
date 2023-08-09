@@ -69,9 +69,8 @@ CREATE INDEX Sector_valid_date_index
 ON Sector(valid_date);
 
 CREATE TABLE OrgType (
-       id SERIAL PRIMARY KEY,
-       code VARCHAR(32) UNIQUE NOT NULL,
-       name VARCHAR(512) NOT NULL
+       code VARCHAR(32) PRIMARY KEY NOT NULL,
+       description VARCHAR(512) NOT NULL
 );
 
 CREATE TABLE Org (
@@ -79,9 +78,9 @@ CREATE TABLE Org (
        hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
-       org_type_ref INT,
+       org_type_code VARCHAR(32),
        valid_date DATE NOT NULL,
-       FOREIGN KEY (org_type_ref) REFERENCES OrgType(id)
+       FOREIGN KEY (org_type_code) REFERENCES OrgType(code)
                ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -105,7 +104,6 @@ CREATE TABLE Location (
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
        centroid_lon FLOAT,
-       is_specified BOOLEAN DEFAULT FALSE,
        valid_date_start DATE NOT NULL,
        valid_date_end DATE DEFAULT NULL
 );
