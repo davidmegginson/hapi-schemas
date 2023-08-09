@@ -12,7 +12,7 @@ DROP VIEW IF EXISTS DatasetView;
 
 CREATE VIEW DatasetView AS
 SELECT D.*
-FROM Dataset;
+FROM Dataset D;
 
 
 DROP VIEW IF EXISTS ResourceView;
