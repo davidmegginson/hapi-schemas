@@ -58,7 +58,7 @@ File | Description
 ``./sql/samples/core-data.sql`` | Sample data for the core tables.
 ``./sql/samples/op-data.sql`` | Sample data for the operational-presence table.
 ``./sql/samples/pop-data.sql`` | Sample data for the baseline-population table.
-``./databases/`` | Test SQLite3 databases.
+``./databases/`` | SQLite3 test databases.
 ``./databases/hapi-test.sql`` | Test database build by the ``Makefile``
 
 As we progress, we can import larger sample datasets from CSV instead of declaring them in SQL.
