@@ -3,6 +3,9 @@
 --
 -- Started 2023-08-09
 --
+-- NOTE: any changes here also need to be reflected in the views
+-- under sql/views; otherwise, the database will break.
+--
 -- For ANSI SQL, replace "SERIAL PRIMARY KEY" with "GENERATED ALWAYS
 -- AS IDENTITY" (works with PostgreSQL, but not SQLite or MySQL).
 -- ---------------------------------------------------------------------
@@ -56,7 +59,6 @@ ON Resource(is_hxl);
 --
 
 CREATE TABLE Sector (
-       id SERIAL PRIMARY KEY,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        valid_date DATE NOT NULL
