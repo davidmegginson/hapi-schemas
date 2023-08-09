@@ -41,7 +41,6 @@ database may break.
 
 ## Files
 
--- | -- | --
 Directory | File | Description
 -- | -- | --
 ``./`` | ``README.md`` | You are here.
