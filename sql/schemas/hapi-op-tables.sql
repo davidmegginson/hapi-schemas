@@ -20,7 +20,7 @@ CREATE TABLE OperationalPresence (
        id SERIAL PRIMARY KEY NOT NULL,
        resource_ref INT NOT NULL,
        org_ref INT NOT NULL,
-       sector_ref INT NOT NULL,
+       sector_code VARCHAR(32) NOT NULL,
        admin2_ref INT NOT NULL,
        valid_date DATE NOT NULL,
        source_data TEXT

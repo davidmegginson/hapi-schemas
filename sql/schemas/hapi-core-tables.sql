@@ -59,7 +59,7 @@ ON Resource(is_hxl);
 --
 
 CREATE TABLE Sector (
-       code VARCHAR(128) UNIQUE NOT NULL,
+       code VARCHAR(32) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        valid_date DATE NOT NULL
 );

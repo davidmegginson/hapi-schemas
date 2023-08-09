@@ -16,12 +16,13 @@ POP_VIEW=${VIEW_DIR}/hapi-pop-view.sql
 
 # Sample data (in order of dependency)
 CORE_DATA=${SAMPLE_DIR}/core-data.sql
+OP_DATA=${SAMPLE_DIR}/op-data.sql
 
 # Info for a simple test database
 TEST_DATABASE=${DATABASE_DIR}/hapi-test.sqlite
 TEST_SCHEMAS=${CORE_SCHEMA} ${OP_SCHEMA} ${POP_SCHEMA}
 TEST_VIEWS=${CORE_VIEWS} ${OP_VIEW} ${POP_VIEW}
-TEST_DATA=${CORE_DATA}
+TEST_DATA=${CORE_DATA} ${OP_DATA}
 
 all: test-database-recreate
 

@@ -18,6 +18,30 @@ VALUES
 (2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'application/ms-excel', '2023-07-01', TRUE, 'https://example.org/api/resource02'),
 (3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'text/csv', '2023-08-01', TRUE, 'https://example.org/api/resource03');
 
+-- these are the actual datatypes from
+-- https://data.humdata.org/dataset/organization-types-beta
+INSERT INTO OrgType (code, description) VALUES
+('431', 'Academic / Research'),
+('433', 'Donor'),
+('434', 'Embassy'),
+('435', 'Government'),
+('437', 'International NGO'),
+('438', 'International Organization'),
+('439', 'Media'),
+('440', 'Military'),
+('441', 'National NGO'),
+('443', 'Other'),
+('444', 'Private sector'),
+('445', 'Red Cross / Red Crescent'),
+('446', 'Religious'),
+('447', 'United Nations');
+
+-- dummy data
+INSERT INTO Org (id, hdx_link, acronym, name, org_type_code, valid_date) VALUES
+(1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01'),
+(2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01'),
+(3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01');
+
 -- these are the actual sector codes from
 -- https://data.humdata.org/dataset/global-coordination-groups-beta
 -- (they won't be sufficient for production; we'll have to add to them)
@@ -38,30 +62,6 @@ VALUES
 ('TEL', 'Emergency Telecommunications', '2023-01-01'),
 ('PRO-GBV', 'Gender Based Violence', '2023-01-01'),
 ('PRO-HLP', 'Housing, Land and Property', '2023-01-01');
-
--- these are the actual datatypes from
--- https://data.humdata.org/dataset/organization-types-beta
-INSERT INTO OrgType (code, description) VALUES
-('431', 'Academic / Research'),
-('433', 'Donor'),
-('434', 'Embassy'),
-('435', 'Government'),
-('437', 'International NGO'),
-('438', 'International Organization'),
-('439', 'Media'),
-('440', 'Military'),
-('441', 'National NGO'),
-('443', 'Other'),
-('444', 'Private sector'),
-('445', 'Red Cross / Red Crescent'),
-('446', 'Religious'),
-('447', 'United Nations');
-
--- dummy data
-INSERT INTO Org (hdx_link, acronym, name, org_type_code, valid_date) VALUES
-('https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01'),
-('https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01'),
-('https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01');
 
 -- dummy data
 INSERT INTO Location (id, code, name, centroid_lat, centroid_lon, valid_date_start, valid_date_end)
