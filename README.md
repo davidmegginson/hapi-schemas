@@ -36,8 +36,8 @@ underlying table structures change, the views can insulate our API
 code.
 
 Any changes to the tables in ``sql/schema/hapi-core-tables.sql`` need
-to be reflected in the views in ``sql/views/`` as well; otherwise, the
-database may break.
+to be reflected in the data-type-specific tables and in the views in
+``sql/views/``; otherwise, the database may break.
 
 ## Files
 
