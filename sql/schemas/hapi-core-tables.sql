@@ -117,7 +117,7 @@ CREATE TABLE Admin1 (
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
        centroid_lon FLOAT,
-       is_specified BOOLEAN DEFAULT FALSE,
+       is_unspecified BOOLEAN DEFAULT FALSE,
        valid_date_start DATE NOT NULL,
        valid_date_end DATE DEFAULT NULL,
        FOREIGN KEY(location_ref) REFERENCES Location(id)
@@ -131,7 +131,7 @@ CREATE TABLE Admin2 (
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
        centroid_lon FLOAT,
-       is_specified BOOLEAN DEFAULT FALSE,
+       is_unspecified BOOLEAN DEFAULT FALSE,
        valid_date_start DATE NOT NULL,
        valid_date_end DATE DEFAULT NULL,
        FOREIGN KEY(admin1_ref) REFERENCES Admin1(id)

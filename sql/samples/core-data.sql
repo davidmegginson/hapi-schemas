@@ -63,6 +63,31 @@ INSERT INTO Org (hdx_link, acronym, name, org_type_code, valid_date) VALUES
 ('https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01'),
 ('https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01');
 
+-- dummy data
+INSERT INTO Location (id, code, name, centroid_lat, centroid_lon, valid_date_start, valid_date_end)
+VALUES
+(1, 'FOO', 'Foolandia', 1, -1, '2023-01-01', NULL);
+
+-- dummy data
+INSERT INTO Admin1 (id, location_ref, code, name, centroid_lat, centroid_lon, is_unspecified, valid_date_start, valid_date_end)
+VALUES
+(1, 1, 'FOO-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
+(2, 1, 'FOO-001', 'Province 01', 1, -1, FALSE, '2023-01-01', NULL),
+(3, 1, 'FOO-002', 'Province 02', 1, -1, FALSE, '2023-01-01', NULL);
+
+-- dummy data
+-- note that we need an "Unspecified" for every Admin1, including the unspecified one
+INSERT INTO Admin2 (id, admin1_ref, code, name, centroid_lat, centroid_lon, is_unspecified, valid_date_start, valid_date_end)
+VALUES
+(1, 1, 'FOO-XXX-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
+(2, 2, 'FOO-001-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
+(3, 3, 'FOO-002-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
+(4, 2, 'FOO-001-A', 'District A', 1, -1, FALSE, '2023-01-01', NULL),
+(5, 2, 'FOO-001-B', 'District B', 1, -1, FALSE, '2023-01-01', NULL),
+(6, 3, 'FOO-002-C', 'District C', 1, -1, FALSE, '2023-01-01', NULL),
+(7, 3, 'FOO-002-D', 'District D', 1, -1, FALSE, '2023-01-01', NULL);
+
+
 -- may be OK for production
 INSERT INTO GENDER (code, description) VALUES
 ('f', 'female'),
