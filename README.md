@@ -42,7 +42,7 @@ database may break.
 ## Files
 
 File | Description
--- | -- | --
+-- | --
 ``README.md`` | You are here.
 ``UNLICENSE.md`` | Public-domain non-license.
 ``Makefile`` | Build file for the test data.
