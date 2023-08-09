@@ -13,14 +13,14 @@ CREATE TABLE Population (
        id SERIAL PRIMARY KEY,
        resource_ref INT NOT NULL,
        admin2_ref INT NOT NULL,
-       gender CHAR(1),
-       age_range VARCHAR(32),
+       gender_code CHAR(1),
+       age_range_code VARCHAR(32),
        population INT NOT NULL,
        valid_date DATE NOT NULL,
        source_data TEXT,
-       FOREIGN KEY (gender) REFERENCES Gender(code)
+       FOREIGN KEY (gender_code) REFERENCES Gender(code)
                ON UPDATE CASCADE,
-       FOREIGN KEY (age_range) REFERENCES AgeRange(code)
+       FOREIGN KEY (age_range_code) REFERENCES AgeRange(code)
                ON UPDATE CASCADE
 );
 

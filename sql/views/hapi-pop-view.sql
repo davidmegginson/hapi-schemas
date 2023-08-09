@@ -24,18 +24,18 @@ SELECT POP.*,
        R.update_date AS resource_update_date,
        R.is_hxl AS resource_is_hxl,
        R.api_link AS resource_api_link,
-       Gender.description AS gender_description,
-       AgeRange.description AS age_range_description,
+       G.description AS gender_description,
+       AR.description AS age_range_description,
        ADM2.name AS admin2_name,
        ADM2.centroid_lat AS admin2_centroid_lat,
        ADM2.centroid_lon AS admin2_centroid_lon,
-       ADM2.is_valid AS admin2_is_valid,
+       ADM2.is_unspecified AS admin2_is_unspecified,
        ADM2.valid_date_start AS admin2_valid_date_start,
        ADM2.valid_date_end AS admin2_valid_date_end,
        ADM1.name AS admin1_name,
        ADM1.centroid_lat AS admin1_centroid_lat,
        ADM1.centroid_lon AS admin1_centroid_lon,
-       ADM1.is_valid AS admin1_is_valid,
+       ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.valid_date_start AS admin1_valid_date_start,
        ADM1.valid_date_end AS admin1_valid_date_end,
        LOC.name AS location_name,
@@ -44,6 +44,8 @@ SELECT POP.*,
        LOC.valid_date_start AS location_valid_date_start,
        LOC.valid_date_end AS location_valid_date_end
 FROM Population POP
+LEFT JOIN Resource R ON POP.resource_ref=R.id
+LEFT JOIN Dataset D ON R.dataset_ref=D.id
 LEFT JOIN Gender G ON POP.gender_code=G.code
 LEFT JOIN AgeRange AR ON POP.age_range_code=AR.code
 LEFT JOIN Admin2 ADM2 ON POP.admin2_ref=ADM2.id
