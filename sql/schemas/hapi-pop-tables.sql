@@ -16,7 +16,8 @@ CREATE TABLE Population (
        gender_code CHAR(1),
        age_range_code VARCHAR(32),
        population INT NOT NULL,
-       valid_date DATE NOT NULL,
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL,
        source_data TEXT,
        FOREIGN KEY (gender_code) REFERENCES Gender(code)
                ON UPDATE CASCADE,
