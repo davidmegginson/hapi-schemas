@@ -63,8 +63,8 @@ SELECT ADM2.*,
        LOC.name AS location_name,
        LOC.centroid_lat AS location_centroid_lat,
        LOC.centroid_lon AS location_centroid_lon,
-       LOC.valid_date_start AS location_valid_date_start,
-       LOC.valid_date_end AS location_valid_date_end
+       LOC.reference_period_start AS location_reference_period_start,
+       LOC.reference_period_end AS location_reference_period_end
 FROM Admin2 ADM2
 LEFT JOIN Admin1 ADM1 ON ADM2.admin1_ref=ADM1.id
 LEFT JOIN Location LOC ON ADM1.location_ref=LOC.id;
@@ -77,8 +77,8 @@ SELECT ADM1.*,
        LOC.name AS location_name,
        LOC.centroid_lat AS location_centroid_lat,
        LOC.centroid_lon AS location_centroid_lon,
-       LOC.valid_date_start AS location_valid_date_start,
-       LOC.valid_date_end AS location_valid_date_end
+       LOC.reference_period_start AS location_reference_period_start,
+       LOC.reference_period_end AS location_reference_period_end
 FROM Admin1 ADM1
 LEFT JOIN Location LOC ON ADM1.location_ref=LOC.id;
 
