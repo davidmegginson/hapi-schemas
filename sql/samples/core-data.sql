@@ -94,13 +94,25 @@ INSERT INTO GENDER (code, description) VALUES
 ('m', 'male'),
 ('x', 'non-binary');
 
--- will likely change for production
-INSERT INTO AgeRange (code, description) VALUES
-('infants', 'children under 5'),
-('children', 'children 5-12'),
-('adolescents', 'children 13-17'),
-('adults', 'adults 18-64'),
-('elderly', 'adults 65+');
+-- will likely include more buckets for production
+INSERT INTO AgeRange (code) VALUES
+('0-4'),
+('5-9'),
+('10-14'),
+('15-19'),
+('20-24'),
+('25-29'),
+('30-34'),
+('35-39'),
+('40-44'),
+('45-49'),
+('50-54'),
+('55-59'),
+('60-64'),
+('65-69'),
+('70-74'),
+('75-79'),
+('80+');
 
 -- end
 
