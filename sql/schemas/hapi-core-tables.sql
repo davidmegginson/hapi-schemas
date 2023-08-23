@@ -39,7 +39,7 @@ CREATE TABLE Resource (
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        filename VARCHAR(256) NOT NULL,
-       mime_type VARCHAR(32) NOT NULL,
+       format VARCHAR(32) NOT NULL,
        update_date DATE NOT NULL,
        is_hxl BOOLEAN NOT NULL,
        api_link VARCHAR(1024) UNIQUE NOT NULL,
