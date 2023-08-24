@@ -22,11 +22,12 @@ CREATE TABLE OperationalPresence (
        org_ref INT NOT NULL,
        sector_code VARCHAR(32) NOT NULL,
        admin2_ref INT NOT NULL,
-       valid_date DATE NOT NULL,
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL,
        source_data TEXT
 );
 
-CREATE INDEX OperationalPresence_valid_date_index
-ON OperationalPresence(valid_date);
+CREATE INDEX OperationalPresence_reference_period_start_index
+ON OperationalPresence(reference_period_start);
 
 -- end

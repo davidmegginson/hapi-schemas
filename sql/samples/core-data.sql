@@ -37,39 +37,39 @@ INSERT INTO OrgType (code, description) VALUES
 ('447', 'United Nations');
 
 -- dummy data
-INSERT INTO Org (id, hdx_link, acronym, name, org_type_code, valid_date) VALUES
-(1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01'),
-(2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01'),
-(3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01');
+INSERT INTO Org (id, hdx_link, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
+(1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01', NULL),
+(2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01', NULL),
+(3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01', NULL);
 
 -- these are the actual sector codes from
 -- https://data.humdata.org/dataset/global-coordination-groups-beta
 -- (they won't be sufficient for production; we'll have to add to them)
-INSERT INTO Sector (code, name, valid_date)
+INSERT INTO Sector (code, name, reference_period_start, reference_period_end)
 VALUES
-('SHL', 'Emergency Shelter and NFI', '2023-01-01'),
-('CCM', 'Camp Coordination / Management', '2023-01-01'),
-('PRO-MIN', 'Mine Action', '2023-01-01'),
-('FSC', 'Food Security', '2023-01-01'),
-('WSH', 'Water Sanitation Hygiene', '2023-01-01'),
-('LOG', 'Logistics', '2023-01-01'),
-('PRO-CPN', 'Child Protection', '2023-01-01'),
-('PRO', 'Protection', '2023-01-01'),
-('EDU', 'Education', '2023-01-01'),
-('NUT', 'Nutrition', '2023-01-01'),
-('HEA', 'Health', '2023-01-01'),
-('ERY', 'Early Recovery', '2023-01-01'),
-('TEL', 'Emergency Telecommunications', '2023-01-01'),
-('PRO-GBV', 'Gender Based Violence', '2023-01-01'),
-('PRO-HLP', 'Housing, Land and Property', '2023-01-01');
+('SHL', 'Emergency Shelter and NFI', '2023-01-01', NULL),
+('CCM', 'Camp Coordination / Management', '2023-01-01', NULL),
+('PRO-MIN', 'Mine Action', '2023-01-01', NULL),
+('FSC', 'Food Security', '2023-01-01', NULL),
+('WSH', 'Water Sanitation Hygiene', '2023-01-01', NULL),
+('LOG', 'Logistics', '2023-01-01', NULL),
+('PRO-CPN', 'Child Protection', '2023-01-01', NULL),
+('PRO', 'Protection', '2023-01-01', NULL),
+('EDU', 'Education', '2023-01-01', NULL),
+('NUT', 'Nutrition', '2023-01-01', NULL),
+('HEA', 'Health', '2023-01-01', NULL),
+('ERY', 'Early Recovery', '2023-01-01', NULL),
+('TEL', 'Emergency Telecommunications', '2023-01-01', NULL),
+('PRO-GBV', 'Gender Based Violence', '2023-01-01', NULL),
+('PRO-HLP', 'Housing, Land and Property', '2023-01-01', NULL);
 
 -- dummy data
-INSERT INTO Location (id, code, name, centroid_lat, centroid_lon, valid_date_start, valid_date_end)
+INSERT INTO Location (id, code, name, centroid_lat, centroid_lon, reference_period_start, reference_period_end)
 VALUES
 (1, 'FOO', 'Foolandia', 1, -1, '2023-01-01', NULL);
 
 -- dummy data
-INSERT INTO Admin1 (id, location_ref, code, name, centroid_lat, centroid_lon, is_unspecified, valid_date_start, valid_date_end)
+INSERT INTO Admin1 (id, location_ref, code, name, centroid_lat, centroid_lon, is_unspecified, reference_period_start, reference_period_end)
 VALUES
 (1, 1, 'FOO-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
 (2, 1, 'FOO-001', 'Province 01', 1, -1, FALSE, '2023-01-01', NULL),
@@ -77,7 +77,7 @@ VALUES
 
 -- dummy data
 -- note that we need an "Unspecified" for every Admin1, including the unspecified one
-INSERT INTO Admin2 (id, admin1_ref, code, name, centroid_lat, centroid_lon, is_unspecified, valid_date_start, valid_date_end)
+INSERT INTO Admin2 (id, admin1_ref, code, name, centroid_lat, centroid_lon, is_unspecified, reference_period_start, reference_period_end)
 VALUES
 (1, 1, 'FOO-XXX-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
 (2, 2, 'FOO-001-XXX', 'Unspecified', 1, -1, TRUE, '2023-01-01', NULL),
@@ -94,13 +94,25 @@ INSERT INTO GENDER (code, description) VALUES
 ('m', 'male'),
 ('x', 'non-binary');
 
--- will likely change for production
-INSERT INTO AgeRange (code, description) VALUES
-('infants', 'children under 5'),
-('children', 'children 5-12'),
-('adolescents', 'children 13-17'),
-('adults', 'adults 18-64'),
-('elderly', 'adults 65+');
+-- will likely include more buckets for production
+INSERT INTO AgeRange (code, age_min, age_max) VALUES
+('0-4', 0, 4),
+('5-9', 5, 9),
+('10-14', 10, 14),
+('15-19', 15, 19),
+('20-24', 20, 24),
+('25-29', 25, 29),
+('30-34', 30, 34),
+('35-39', 35, 39),
+('40-44', 40, 44),
+('45-49', 45, 49),
+('50-54', 50, 54),
+('55-59', 55, 59),
+('60-64', 60, 64),
+('65-69', 65, 69),
+('70-74', 70, 74),
+('75-79', 75, 79),
+('80+', 80, NULL);
 
 -- end
 
