@@ -151,7 +151,9 @@ CREATE TABLE Gender (
 );
 
 CREATE TABLE AgeRange (
-       code VARCHAR(32) PRIMARY KEY NOT NULL
+       code VARCHAR(32) PRIMARY KEY NOT NULL,
+       age_min INT NOT NULL,
+       age_max INT
 );
 
 -- end

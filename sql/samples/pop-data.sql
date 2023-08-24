@@ -15,8 +15,8 @@ VALUES
 (2, 1, 1, 'f', NULL, 500001, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),         -- national (f), all ages
 (3, 1, 1, 'm', NULL, 489999, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),         -- national (f), all ages
 (4, 1, 1, 'x', NULL, 9999, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),           -- national (x), all ages
-(5, 1, 1, 'f', 'children', 300000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),   -- national (f) children
-(6, 1, 2, 'x', 'adolescents', 2000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),  -- admin1 (x) adolescents
-(7, 1, 4, 'm', 'elderly', 100000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA');    -- admin2 (m) elderly
+(5, 1, 1, 'f', '0-4', 300000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),   -- national (f) children
+(6, 1, 2, 'x', '5-9', 2000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA'),  -- admin1 (x) adolescents
+(7, 1, 4, 'm', '10-14', 100000, '2023-01-01',  '2023-06-30','DATA,DATA,DATA');    -- admin2 (m) elderly
 
 -- end
