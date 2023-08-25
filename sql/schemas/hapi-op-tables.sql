@@ -17,7 +17,7 @@
 --
 
 CREATE TABLE OperationalPresence (
-       id SERIAL PRIMARY KEY NOT NULL,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        resource_ref INT NOT NULL,
        org_ref INT NOT NULL,
        sector_code VARCHAR(32) NOT NULL,

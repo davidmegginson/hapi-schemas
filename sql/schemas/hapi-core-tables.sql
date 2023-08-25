@@ -18,7 +18,7 @@
 --
 
 CREATE TABLE Dataset (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        title VARCHAR(1024) NOT NULL,
@@ -34,7 +34,7 @@ CREATE INDEX Dataset_provider_name_index
 ON Dataset(provider_name);
 
 CREATE TABLE Resource (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        dataset_ref INT NOT NULL,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE OrgType (
 );
 
 CREATE TABLE Org (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
@@ -103,7 +103,7 @@ ON Org(reference_period_start);
 --
 
 CREATE TABLE Location (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
@@ -113,7 +113,7 @@ CREATE TABLE Location (
 );
 
 CREATE TABLE Admin1 (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        location_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE Admin1 (
 );
 
 CREATE TABLE Admin2 (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        admin1_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,

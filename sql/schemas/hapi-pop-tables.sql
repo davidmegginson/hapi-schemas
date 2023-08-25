@@ -10,7 +10,7 @@
 -- ---------------------------------------------------------------------
 
 CREATE TABLE Population (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
        resource_ref INT NOT NULL,
        admin2_ref INT NOT NULL,
        gender_code CHAR(1),
