@@ -5,8 +5,10 @@
 --
 -- These depend on the tables in hapi-core-tables.sql
 --
--- For ANSI SQL, replace "SERIAL PRIMARY KEY" with "GENERATED ALWAYS
--- AS IDENTITY" (works with PostgreSQL, but not SQLite or MySQL).
+-- For auto incrementing primary keys, use:
+-- PostgreSQL: SERIAL PRIMARY KEY
+-- sqlite: INTEGER PRIMARY KEY AUTOINCREMENT
+-- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
 CREATE TABLE Population (
