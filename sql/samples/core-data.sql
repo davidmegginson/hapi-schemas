@@ -14,9 +14,9 @@ VALUES
 
 INSERT INTO Resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
 VALUES
-(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'CSV', '2023-06-01', TRUE, 'https://example.org/api/resource01'),
-(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'XLSX', '2023-07-01', TRUE, 'https://example.org/api/resource02'),
-(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'CSV', '2023-08-01', TRUE, 'https://example.org/api/resource03');
+(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'csv', '2023-06-01', TRUE, 'https://example.org/api/resource01'),
+(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01', TRUE, 'https://example.org/api/resource02'),
+(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'csv', '2023-08-01', TRUE, 'https://example.org/api/resource03');
 
 -- these are the actual datatypes from
 -- https://data.humdata.org/dataset/organization-types-beta
