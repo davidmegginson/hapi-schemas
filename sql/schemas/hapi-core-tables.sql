@@ -61,14 +61,15 @@ ON Resource(is_hxl);
 CREATE TABLE Sector (
        code VARCHAR(32) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       valid_date DATE NOT NULL
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL
 );
 
 CREATE INDEX Sector_name_index
 ON Sector(name);
 
-CREATE INDEX Sector_valid_date_index
-ON Sector(valid_date);
+CREATE INDEX Sector_reference_period_start_index
+ON Sector(reference_period_start);
 
 CREATE TABLE OrgType (
        code VARCHAR(32) PRIMARY KEY NOT NULL,
@@ -81,7 +82,8 @@ CREATE TABLE Org (
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
        org_type_code VARCHAR(32),
-       valid_date DATE NOT NULL,
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL,
        FOREIGN KEY (org_type_code) REFERENCES OrgType(code)
                ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -89,8 +91,8 @@ CREATE TABLE Org (
 CREATE INDEX Org_acronym_index
 ON Org(acronym);
 
-CREATE INDEX Org_valid_date_index
-ON Org(valid_date);
+CREATE INDEX Org_reference_period_start_index
+ON Org(reference_period_start);
 
 
 --
@@ -106,8 +108,8 @@ CREATE TABLE Location (
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
        centroid_lon FLOAT,
-       valid_date_start DATE NOT NULL,
-       valid_date_end DATE DEFAULT NULL
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL
 );
 
 CREATE TABLE Admin1 (
@@ -118,8 +120,8 @@ CREATE TABLE Admin1 (
        centroid_lat FLOAT,
        centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       valid_date_start DATE NOT NULL,
-       valid_date_end DATE DEFAULT NULL,
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL,
        FOREIGN KEY(location_ref) REFERENCES Location(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -132,8 +134,8 @@ CREATE TABLE Admin2 (
        centroid_lat FLOAT,
        centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       valid_date_start DATE NOT NULL,
-       valid_date_end DATE DEFAULT NULL,
+       reference_period_start DATE NOT NULL,
+       reference_period_end DATE DEFAULT NULL,
        FOREIGN KEY(admin1_ref) REFERENCES Admin1(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -150,7 +152,8 @@ CREATE TABLE Gender (
 
 CREATE TABLE AgeRange (
        code VARCHAR(32) PRIMARY KEY NOT NULL,
-       description VARCHAR(256)
+       age_min INT NOT NULL,
+       age_max INT
 );
 
 -- end
