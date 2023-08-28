@@ -12,11 +12,11 @@ VALUES
 (1, 'https://example.org/dataset01', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1', 'https://example.org/api/dataset01'),
 (2, 'https://example.org/dataset02', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2', 'https://example.org/api/dataset02');
 
-INSERT INTO Resource (id, dataset_ref, hdx_link, code, filename, mime_type, update_date, is_hxl, api_link)
+INSERT INTO Resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
 VALUES
-(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'text/csv', '2023-06-01', TRUE, 'https://example.org/api/resource01'),
-(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'application/ms-excel', '2023-07-01', TRUE, 'https://example.org/api/resource02'),
-(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'text/csv', '2023-08-01', TRUE, 'https://example.org/api/resource03');
+(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'csv', '2023-06-01', TRUE, 'https://example.org/api/resource01'),
+(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01', TRUE, 'https://example.org/api/resource02'),
+(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'csv', '2023-08-01', TRUE, 'https://example.org/api/resource03');
 
 -- these are the actual datatypes from
 -- https://data.humdata.org/dataset/organization-types-beta
