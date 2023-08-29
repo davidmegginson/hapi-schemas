@@ -55,14 +55,10 @@ DROP VIEW IF EXISTS Admin2View;
 CREATE VIEW Admin2View AS
 SELECT ADM2.*,
        ADM1.name AS admin1_name,
-       ADM1.centroid_lat AS admin1_centroid_lat,
-       ADM1.centroid_lon AS admin1_centroid_lon,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.reference_period_start AS admin1_reference_period_start,
        ADM1.reference_period_end AS admin1_reference_period_end,
        LOC.name AS location_name,
-       LOC.centroid_lat AS location_centroid_lat,
-       LOC.centroid_lon AS location_centroid_lon,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
 FROM Admin2 ADM2
@@ -75,8 +71,6 @@ DROP VIEW IF EXISTS Admin1View;
 CREATE VIEW Admin1View AS
 SELECT ADM1.*,
        LOC.name AS location_name,
-       LOC.centroid_lat AS location_centroid_lat,
-       LOC.centroid_lon AS location_centroid_lon,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
 FROM Admin1 ADM1

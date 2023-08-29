@@ -13,3 +13,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   "end" to all relevant datasets
 - Change resource metadata to provide format instead of MIME type
 - Use DATETIME instead of DATE type for all dates
+- Remove all centroid columns
+ 
