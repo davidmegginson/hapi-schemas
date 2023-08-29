@@ -24,8 +24,8 @@ CREATE TABLE OperationalPresence (
        org_ref INT NOT NULL,
        sector_code VARCHAR(32) NOT NULL,
        admin2_ref INT NOT NULL,
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL,
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL,
        source_data TEXT
 );
 

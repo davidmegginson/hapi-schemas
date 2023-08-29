@@ -42,7 +42,7 @@ CREATE TABLE Resource (
        code VARCHAR(128) UNIQUE NOT NULL,
        filename VARCHAR(256) NOT NULL,
        format VARCHAR(32) NOT NULL,
-       update_date DATE NOT NULL,
+       update_date DATETIME NOT NULL,
        is_hxl BOOLEAN NOT NULL,
        api_link VARCHAR(1024) UNIQUE NOT NULL,
        FOREIGN KEY(dataset_ref) REFERENCES Dataset(id)
@@ -63,8 +63,8 @@ ON Resource(is_hxl);
 CREATE TABLE Sector (
        code VARCHAR(32) PRIMARY KEY UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL
 );
 
 CREATE INDEX Sector_name_index
@@ -84,8 +84,8 @@ CREATE TABLE Org (
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
        org_type_code VARCHAR(32),
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL,
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL,
        FOREIGN KEY (org_type_code) REFERENCES OrgType(code)
                ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -110,8 +110,8 @@ CREATE TABLE Location (
        name VARCHAR(512) NOT NULL,
        centroid_lat FLOAT,
        centroid_lon FLOAT,
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL
 );
 
 CREATE TABLE Admin1 (
@@ -122,8 +122,8 @@ CREATE TABLE Admin1 (
        centroid_lat FLOAT,
        centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL,
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL,
        FOREIGN KEY(location_ref) REFERENCES Location(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -136,8 +136,8 @@ CREATE TABLE Admin2 (
        centroid_lat FLOAT,
        centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       reference_period_start DATE NOT NULL,
-       reference_period_end DATE DEFAULT NULL,
+       reference_period_start DATETIME NOT NULL,
+       reference_period_end DATETIME DEFAULT NULL,
        FOREIGN KEY(admin1_ref) REFERENCES Admin1(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );

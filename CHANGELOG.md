@@ -12,4 +12,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Dates: renamed to "reference_period", added "start" and
   "end" to all relevant datasets
 - Change resource metadata to provide format instead of MIME type
-- Update primary key auto incrementation to sqlite syntax
+- Update primary key to sqlite syntax
+- Use DATETIME instead of DATE type for all dates
