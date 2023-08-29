@@ -7,12 +7,12 @@
 --
 -- For auto incrementing primary keys, use:
 -- PostgreSQL: SERIAL PRIMARY KEY
--- sqlite: INTEGER PRIMARY KEY AUTOINCREMENT
+-- sqlite: INTEGER PRIMARY KEY
 -- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
 CREATE TABLE Population (
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
+       id INTEGER PRIMARY KEY,
        resource_ref INT NOT NULL,
        admin2_ref INT NOT NULL,
        gender_code CHAR(1),

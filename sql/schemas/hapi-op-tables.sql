@@ -7,7 +7,7 @@
 --
 -- For auto incrementing primary keys, use:
 -- PostgreSQL: SERIAL PRIMARY KEY
--- sqlite: INTEGER PRIMARY KEY AUTOINCREMENT
+-- sqlite: INTEGER PRIMARY KEY
 -- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
@@ -19,7 +19,7 @@
 --
 
 CREATE TABLE OperationalPresence (
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
+       id INTEGER PRIMARY KEY,
        resource_ref INT NOT NULL,
        org_ref INT NOT NULL,
        sector_code VARCHAR(32) NOT NULL,
