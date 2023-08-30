@@ -106,8 +106,6 @@ CREATE TABLE Location (
        id SERIAL PRIMARY KEY,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       centroid_lat FLOAT,
-       centroid_lon FLOAT,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL
 );
@@ -117,8 +115,6 @@ CREATE TABLE Admin1 (
        location_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       centroid_lat FLOAT,
-       centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
@@ -131,8 +127,6 @@ CREATE TABLE Admin2 (
        admin1_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       centroid_lat FLOAT,
-       centroid_lon FLOAT,
        is_unspecified BOOLEAN DEFAULT FALSE,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
