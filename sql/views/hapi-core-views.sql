@@ -53,7 +53,7 @@ LEFT JOIN org_type OT ON O.org_type_code=OT.code;
 DROP VIEW IF EXISTS admin2_view;
 
 CREATE VIEW admin2_view AS
-SELECT ADM2.*,https://slack.com/help/articles/4416442287251-Introducing-canvases--A-new-way-to-curate-collaborate-and-share-information-in-Slack-
+SELECT ADM2.*,
        ADM1.name AS admin1_name,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.reference_period_start AS admin1_reference_period_start,
