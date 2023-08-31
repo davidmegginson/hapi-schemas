@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.0] - 2023-08-24
 
-### Changed 
+### Changed
 
 - Age range: removed description, added integer range
 - Dates: renamed to "reference_period", added "start" and
@@ -15,4 +15,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Update primary key to sqlite syntax
 - Use DATETIME instead of DATE type for all dates
 - Remove all centroid columns
- 
+- Simplified OperationalPresenceView and PopulationView by removing many metadata
+  fields pulled in from the Dataset, Resource, Org, Sector, Loc, Admin1, and Admin2
+  tables. These fields weren't required for API queries or API results.
