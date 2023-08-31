@@ -19,7 +19,7 @@
 -- Resource ::= [SpecificDataType]*
 --
 
-CREATE TABLE Dataset (
+CREATE TABLE dataset (
        id INTEGER PRIMARY KEY,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
@@ -29,13 +29,13 @@ CREATE TABLE Dataset (
        api_link VARCHAR(1024) UNIQUE NOT NULL
 );
 
-CREATE INDEX Dataset_provider_code_index
-ON Dataset(provider_code);
+CREATE INDEX dataset_provider_code_index
+ON dataset(provider_code);
 
-CREATE INDEX Dataset_provider_name_index
-ON Dataset(provider_name);
+CREATE INDEX dataset_provider_name_index
+ON dataset(provider_name);
 
-CREATE TABLE Resource (
+CREATE TABLE resource (
        id INTEGER PRIMARY KEY,
        dataset_ref INT NOT NULL,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
@@ -45,40 +45,40 @@ CREATE TABLE Resource (
        update_date DATETIME NOT NULL,
        is_hxl BOOLEAN NOT NULL,
        api_link VARCHAR(1024) UNIQUE NOT NULL,
-       FOREIGN KEY(dataset_ref) REFERENCES Dataset(id)
+       FOREIGN KEY(dataset_ref) REFERENCES dataset(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE INDEX Resource_update_date_index
-ON Resource(update_date);
+CREATE INDEX resource_update_date_index
+ON resource(update_date);
 
-CREATE INDEX Resource_is_hxl_index
-ON Resource(is_hxl);
+CREATE INDEX resource_is_hxl_index
+ON resource(is_hxl);
 
 
 --
 -- Humanitarian response
 --
 
-CREATE TABLE Sector (
+CREATE TABLE sector (
        code VARCHAR(32) PRIMARY KEY UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL
 );
 
-CREATE INDEX Sector_name_index
-ON Sector(name);
+CREATE INDEX sector_name_index
+ON sector(name);
 
-CREATE INDEX Sector_reference_period_start_index
-ON Sector(reference_period_start);
+CREATE INDEX sector_reference_period_start_index
+ON sector(reference_period_start);
 
-CREATE TABLE OrgType (
+CREATE TABLE org_type (
        code VARCHAR(32) PRIMARY KEY NOT NULL,
        description VARCHAR(512) NOT NULL
 );
 
-CREATE TABLE Org (
+CREATE TABLE org (
        id INTEGER PRIMARY KEY,
        hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
@@ -86,15 +86,15 @@ CREATE TABLE Org (
        org_type_code VARCHAR(32),
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
-       FOREIGN KEY (org_type_code) REFERENCES OrgType(code)
+       FOREIGN KEY (org_type_code) REFERENCES org_type(code)
                ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE INDEX Org_acronym_index
-ON Org(acronym);
+CREATE INDEX org_acronym_index
+ON org(acronym);
 
-CREATE INDEX Org_reference_period_start_index
-ON Org(reference_period_start);
+CREATE INDEX org_reference_period_start_index
+ON org(reference_period_start);
 
 
 --
@@ -104,7 +104,7 @@ ON Org(reference_period_start);
 -- Admin1 ::= Admin2+
 --
 
-CREATE TABLE Location (
+CREATE TABLE location (
        id INTEGER PRIMARY KEY,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE Location (
        reference_period_end DATETIME DEFAULT NULL
 );
 
-CREATE TABLE Admin1 (
+CREATE TABLE admin1 (
        id INTEGER PRIMARY KEY,
        location_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
@@ -120,11 +120,11 @@ CREATE TABLE Admin1 (
        is_unspecified BOOLEAN DEFAULT FALSE,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
-       FOREIGN KEY(location_ref) REFERENCES Location(id)
+       FOREIGN KEY(location_ref) REFERENCES location(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Admin2 (
+CREATE TABLE admin2 (
        id INTEGER PRIMARY KEY,
        admin1_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE Admin2 (
        is_unspecified BOOLEAN DEFAULT FALSE,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
-       FOREIGN KEY(admin1_ref) REFERENCES Admin1(id)
+       FOREIGN KEY(admin1_ref) REFERENCES admin1(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -141,12 +141,12 @@ CREATE TABLE Admin2 (
 -- Demographics
 --
 
-CREATE TABLE Gender (
+CREATE TABLE gender (
        code CHAR(1) PRIMARY KEY NOT NULL,
        description VARCHAR(256)
 );
 
-CREATE TABLE AgeRange (
+CREATE TABLE age_range (
        code VARCHAR(32) PRIMARY KEY NOT NULL,
        age_min INT NOT NULL,
        age_max INT

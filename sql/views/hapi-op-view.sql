@@ -6,10 +6,10 @@
 -- Depends on hapi-core-tables.sql and hapi-op-tables.sql
 -- ---------------------------------------------------------------------
 
-DROP VIEW IF EXISTS OperationalPresenceView;
+DROP VIEW IF EXISTS operational_presence_view;
 
 -- TODO: fill in fields
-CREATE VIEW OperationalPresenceView AS
+CREATE VIEW operational_presence_view AS
 SELECT OP.*,
        D.code AS dataset_code,
        D.title AS dataset_title,
@@ -29,15 +29,15 @@ SELECT OP.*,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM2.name AS admin2_name,
        ADM2.is_unspecified AS admin2_is_unspecified
-FROM OperationalPresence OP
-LEFT JOIN Resource R ON OP.resource_ref=R.id
-LEFT JOIN Dataset D ON R.dataset_ref=D.id
-LEFT JOIN Org O ON OP.org_ref=O.id
-LEFT JOIN OrgType OT ON O.org_type_code=OT.code
-LEFT JOIN Sector S ON OP.sector_code=S.code
-LEFT JOIN Admin2 ADM2 ON OP.admin2_ref=ADM2.id
-LEFT JOIN Admin1 ADM1 ON ADM2.admin1_ref=ADM1.id
-LEFT JOIN Location LOC ON ADM1.location_ref=LOC.id;
+FROM operational_presence OP
+LEFT JOIN resource R ON OP.resource_ref=R.id
+LEFT JOIN dataset D ON R.dataset_ref=D.id
+LEFT JOIN org O ON OP.org_ref=O.id
+LEFT JOIN org_type OT ON O.org_type_code=OT.code
+LEFT JOIN sector S ON OP.sector_code=S.code
+LEFT JOIN admin2 ADM2 ON OP.admin2_ref=ADM2.id
+LEFT JOIN admin1 ADM1 ON ADM2.admin1_ref=ADM1.id
+LEFT JOIN location LOC ON ADM1.location_ref=LOC.id;
 
 -- end
 

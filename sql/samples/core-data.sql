@@ -7,12 +7,12 @@
 -- Started 2023-08-09
 -- ---------------------------------------------------------------------
 
-INSERT INTO Dataset (id, hdx_link, code, title, provider_code, provider_name, api_link)
+INSERT INTO dataset (id, hdx_link, code, title, provider_code, provider_name, api_link)
 VALUES
 (1, 'https://example.org/dataset01', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1', 'https://example.org/api/dataset01'),
 (2, 'https://example.org/dataset02', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2', 'https://example.org/api/dataset02');
 
-INSERT INTO Resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
+INSERT INTO resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
 VALUES
 (1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'csv', '2023-06-01 00:00:00', TRUE, 'https://example.org/api/resource01'),
 (2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01 00:00:00', TRUE, 'https://example.org/api/resource02'),
@@ -20,7 +20,7 @@ VALUES
 
 -- these are the actual datatypes from
 -- https://data.humdata.org/dataset/organization-types-beta
-INSERT INTO OrgType (code, description) VALUES
+INSERT INTO org_type (code, description) VALUES
 ('431', 'Academic / Research'),
 ('433', 'Donor'),
 ('434', 'Embassy'),
@@ -37,7 +37,7 @@ INSERT INTO OrgType (code, description) VALUES
 ('447', 'United Nations');
 
 -- dummy data
-INSERT INTO Org (id, hdx_link, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
+INSERT INTO org (id, hdx_link, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
 (1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01 00:00:00', NULL),
 (2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01 00:00:00', NULL),
 (3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01 00:00:00', NULL);
@@ -45,7 +45,7 @@ INSERT INTO Org (id, hdx_link, acronym, name, org_type_code, reference_period_st
 -- these are the actual sector codes from
 -- https://data.humdata.org/dataset/global-coordination-groups-beta
 -- (they won't be sufficient for production; we'll have to add to them)
-INSERT INTO Sector (code, name, reference_period_start, reference_period_end)
+INSERT INTO sector (code, name, reference_period_start, reference_period_end)
 VALUES
 ('SHL', 'Emergency Shelter and NFI', '2023-01-01 00:00:00', NULL),
 ('CCM', 'Camp Coordination / Management', '2023-01-01 00:00:00', NULL),
@@ -64,12 +64,12 @@ VALUES
 ('PRO-HLP', 'Housing, Land and Property', '2023-01-01 00:00:00', NULL);
 
 -- dummy data
-INSERT INTO Location (id, code, name, reference_period_start, reference_period_end)
+INSERT INTO location (id, code, name, reference_period_start, reference_period_end)
 VALUES
 (1, 'FOO', 'Foolandia', '2023-01-01 00:00:00', NULL);
 
 -- dummy data
-INSERT INTO Admin1 (id, location_ref, code, name, is_unspecified, reference_period_start, reference_period_end)
+INSERT INTO admin1 (id, location_ref, code, name, is_unspecified, reference_period_start, reference_period_end)
 VALUES
 (1, 1, 'FOO-XXX', 'Unspecified', TRUE, '2023-01-01 00:00:00', NULL),
 (2, 1, 'FOO-001', 'Province 01', FALSE, '2023-01-01 00:00:00', NULL),
@@ -77,7 +77,7 @@ VALUES
 
 -- dummy data
 -- note that we need an "Unspecified" for every Admin1, including the unspecified one
-INSERT INTO Admin2 (id, admin1_ref, code, name, is_unspecified, reference_period_start, reference_period_end)
+INSERT INTO admin2 (id, admin1_ref, code, name, is_unspecified, reference_period_start, reference_period_end)
 VALUES
 (1, 1, 'FOO-XXX-XXX', 'Unspecified', TRUE, '2023-01-01 00:00:00', NULL),
 (2, 2, 'FOO-001-XXX', 'Unspecified', TRUE, '2023-01-01 00:00:00', NULL),
@@ -89,13 +89,13 @@ VALUES
 
 
 -- may be OK for production
-INSERT INTO GENDER (code, description) VALUES
+INSERT INTO gender (code, description) VALUES
 ('f', 'female'),
 ('m', 'male'),
 ('x', 'non-binary');
 
 -- will likely include more buckets for production
-INSERT INTO AgeRange (code, age_min, age_max) VALUES
+INSERT INTO age_range (code, age_min, age_max) VALUES
 ('0-4', 0, 4),
 ('5-9', 5, 9),
 ('10-14', 10, 14),
