@@ -6,8 +6,10 @@
 -- NOTE: any changes here also need to be reflected in the views
 -- under sql/views; otherwise, the database will break.
 --
--- For ANSI SQL, replace "SERIAL PRIMARY KEY" with "GENERATED ALWAYS
--- AS IDENTITY" (works with PostgreSQL, but not SQLite or MySQL).
+-- For auto incrementing primary keys, use:
+-- PostgreSQL: SERIAL PRIMARY KEY
+-- sqlite: INTEGER PRIMARY KEY
+-- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
 --
@@ -18,7 +20,7 @@
 --
 
 CREATE TABLE Dataset (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        title VARCHAR(1024) NOT NULL,
@@ -34,7 +36,7 @@ CREATE INDEX Dataset_provider_name_index
 ON Dataset(provider_name);
 
 CREATE TABLE Resource (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        dataset_ref INT NOT NULL,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
@@ -77,7 +79,7 @@ CREATE TABLE OrgType (
 );
 
 CREATE TABLE Org (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
@@ -103,7 +105,7 @@ ON Org(reference_period_start);
 --
 
 CREATE TABLE Location (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        reference_period_start DATETIME NOT NULL,
@@ -111,7 +113,7 @@ CREATE TABLE Location (
 );
 
 CREATE TABLE Admin1 (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        location_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
@@ -123,7 +125,7 @@ CREATE TABLE Admin1 (
 );
 
 CREATE TABLE Admin2 (
-       id SERIAL PRIMARY KEY,
+       id INTEGER PRIMARY KEY,
        admin1_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,

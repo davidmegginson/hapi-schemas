@@ -5,8 +5,10 @@
 --
 -- These depend on the tables in hapi-core-tables.sql
 --
--- For ANSI SQL, replace "SERIAL PRIMARY KEY" with "GENERATED ALWAYS
--- AS IDENTITY" (works with PostgreSQL, but not SQLite or MySQL).
+-- For auto incrementing primary keys, use:
+-- PostgreSQL: SERIAL PRIMARY KEY
+-- sqlite: INTEGER PRIMARY KEY
+-- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
 --
@@ -17,7 +19,7 @@
 --
 
 CREATE TABLE OperationalPresence (
-       id SERIAL PRIMARY KEY NOT NULL,
+       id INTEGER PRIMARY KEY,
        resource_ref INT NOT NULL,
        org_ref INT NOT NULL,
        sector_code VARCHAR(32) NOT NULL,
