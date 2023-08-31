@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Table names changed to snake case for better compatability
+- Table and view names changed to snake case for better compatability
   with PostgreSQL
 
 ## [1.0] - 2023-08-24
