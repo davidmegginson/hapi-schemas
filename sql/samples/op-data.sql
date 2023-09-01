@@ -9,7 +9,7 @@
 -- Depends on core-data.sql
 -- ------------------------------------------------------------------------
 
-INSERT INTO OperationalPresence (id, resource_ref, org_ref, sector_code, admin2_ref, reference_period_start, reference_period_end, source_data)
+INSERT INTO operational_presence (id, resource_ref, org_ref, sector_code, admin2_ref, reference_period_start, reference_period_end, source_data)
 VALUES
 (1, 1, 1, 'SHL', 2, '2023-01-01 00:00:00', NULL, 'DATA,DATA,DATA'),
 (2, 1, 2, 'FSC', 4, '2023-01-01 00:00:00', NULL, 'DATA,DATA,DATA'),

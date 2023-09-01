@@ -8,51 +8,51 @@
 -- That's why there are views even for tables that have no joins.
 -- ---------------------------------------------------------------------
 
-DROP VIEW IF EXISTS DatasetView;
+DROP VIEW IF EXISTS dataset_view;
 
-CREATE VIEW DatasetView AS
+CREATE VIEW dataset_view AS
 SELECT D.*
-FROM Dataset D;
+FROM dataset D;
 
 
-DROP VIEW IF EXISTS ResourceView;
+DROP VIEW IF EXISTS resource_view;
 
-CREATE VIEW ResourceView AS
+CREATE VIEW resource_view AS
 SELECT R.*,
        D.hdx_link AS dataset_hdx_link,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name,
        D.api_link AS dataset_provider_link
-FROM Resource R
-LEFT JOIN Dataset D ON R.dataset_ref=D.id;
+FROM resource R
+LEFT JOIN dataset D ON R.dataset_ref=D.id;
 
 
-DROP VIEW IF EXISTS SectorView;
+DROP VIEW IF EXISTS sector_view;
 
-CREATE VIEW SectorView AS
+CREATE VIEW sector_view AS
 SELECT S.*
-FROM Sector S;
+FROM sector S;
 
 
-DROP VIEW IF EXISTS OrgTypeView;
+DROP VIEW IF EXISTS org_type_view;
 
-CREATE VIEW OrgTypeView AS
+CREATE VIEW org_type_view AS
 SELECT OT.*
-FROM OrgType OT;
+FROM org_type OT;
 
 
-DROP VIEW IF EXISTS OrgView;
+DROP VIEW IF EXISTS org_view;
 
-CREATE VIEW OrgView AS
+CREATE VIEW org_view AS
 SELECT O.*, OT.description AS org_type_description
-FROM Org O
-LEFT JOIN OrgType OT ON O.org_type_code=OT.code;
+FROM org O
+LEFT JOIN org_type OT ON O.org_type_code=OT.code;
 
 
-DROP VIEW IF EXISTS Admin2View;
+DROP VIEW IF EXISTS admin2_view;
 
-CREATE VIEW Admin2View AS
+CREATE VIEW admin2_view AS
 SELECT ADM2.*,
        ADM1.name AS admin1_name,
        ADM1.is_unspecified AS admin1_is_unspecified,
@@ -61,40 +61,40 @@ SELECT ADM2.*,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
-FROM Admin2 ADM2
-LEFT JOIN Admin1 ADM1 ON ADM2.admin1_ref=ADM1.id
-LEFT JOIN Location LOC ON ADM1.location_ref=LOC.id;
+FROM admin2 ADM2
+LEFT JOIN admin1 ADM1 ON ADM2.admin1_ref=ADM1.id
+LEFT JOIN location LOC ON ADM1.location_ref=LOC.id;
 
 
-DROP VIEW IF EXISTS Admin1View;
+DROP VIEW IF EXISTS admin1_view;
 
-CREATE VIEW Admin1View AS
+CREATE VIEW admin1_view AS
 SELECT ADM1.*,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
-FROM Admin1 ADM1
-LEFT JOIN Location LOC ON ADM1.location_ref=LOC.id;
+FROM admin1 ADM1
+LEFT JOIN location LOC ON ADM1.location_ref=LOC.id;
 
 
-DROP VIEW IF EXISTS LocationView;
+DROP VIEW IF EXISTS location_view;
 
-CREATE VIEW LocationView AS
+CREATE VIEW location_view AS
 SELECT LOC.*
-FROM Location LOC;
+FROM location LOC;
 
 
-DROP VIEW IF EXISTS GenderView;
+DROP VIEW IF EXISTS gender_view;
 
-CREATE VIEW GenderView AS
+CREATE VIEW gender_view AS
 SELECT G.*
-FROM Gender G;
+FROM gender G;
 
 
-DROP VIEW IF EXISTS AgeRangeView;
+DROP VIEW IF EXISTS age_range_view;
 
-CREATE VIEW AgeRangeView AS
+CREATE VIEW age_range_view AS
 SELECT AR.*
-FROM AgeRange AR;
+FROM age_range AR;
 
 -- end

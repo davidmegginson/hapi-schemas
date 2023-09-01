@@ -9,7 +9,7 @@
 -- Depends on core-data.sql
 -- ------------------------------------------------------------------------
 
-INSERT INTO Population (id, resource_ref, admin2_ref, gender_code, age_range_code, population, reference_period_start, reference_period_end, source_data)
+INSERT INTO population (id, resource_ref, admin2_ref, gender_code, age_range_code, population, reference_period_start, reference_period_end, source_data)
 VALUES
 (1, 1, 1, NULL, NULL, 1000000, '2023-01-01 00:00:00', '2023-06-30 00:00:00', 'DATA,DATA,DATA'),       -- total national
 (2, 1, 1, 'f', NULL, 500001, '2023-01-01 00:00:00',  '2023-06-30 00:00:00','DATA,DATA,DATA'),         -- national (f), all ages

@@ -18,7 +18,7 @@
 -- Resource ::= [SpecificDataType]*
 --
 
-CREATE TABLE OperationalPresence (
+CREATE TABLE operational_presence (
        id INTEGER PRIMARY KEY,
        resource_ref INT NOT NULL,
        org_ref INT NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE OperationalPresence (
        source_data TEXT
 );
 
-CREATE INDEX OperationalPresence_reference_period_start_index
-ON OperationalPresence(reference_period_start);
+CREATE INDEX operational_presence_reference_period_start_index
+ON operational_presence(reference_period_start);
 
 -- end

@@ -11,7 +11,7 @@
 -- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
-CREATE TABLE Population (
+CREATE TABLE population (
        id INTEGER PRIMARY KEY,
        resource_ref INT NOT NULL,
        admin2_ref INT NOT NULL,
@@ -21,13 +21,13 @@ CREATE TABLE Population (
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
        source_data TEXT,
-       FOREIGN KEY (gender_code) REFERENCES Gender(code)
+       FOREIGN KEY (gender_code) REFERENCES gender(code)
                ON UPDATE CASCADE,
-       FOREIGN KEY (age_range_code) REFERENCES AgeRange(code)
+       FOREIGN KEY (age_range_code) REFERENCES age_range(code)
                ON UPDATE CASCADE
 );
 
-CREATE INDEX Population_population_index
-ON Population(population);
+CREATE INDEX population_population_index
+ON population(population);
 
 -- end
