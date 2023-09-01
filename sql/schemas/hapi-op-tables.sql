@@ -26,7 +26,15 @@ CREATE TABLE operational_presence (
        admin2_ref INT NOT NULL,
        reference_period_start DATETIME NOT NULL,
        reference_period_end DATETIME DEFAULT NULL,
-       source_data TEXT
+       source_data TEXT,
+       FOREIGN KEY (resource_ref) REFERENCES resource(id)
+               ON UPDATE CASCADE,
+       FOREIGN KEY (org_ref) REFERENCES org(id)
+               ON UPDATE CASCADE,
+       FOREIGN KEY (sector_code) REFERENCES sector(code)
+               ON UPDATE CASCADE,
+       FOREIGN KEY (admin2_ref) REFERENCES admin2(id)
+               ON UPDATE CASCADE
 );
 
 CREATE INDEX operational_presence_reference_period_start_index
