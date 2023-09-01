@@ -28,7 +28,7 @@ CREATE TABLE operational_presence (
        reference_period_end DATETIME DEFAULT NULL,
        source_data TEXT,
        FOREIGN KEY (resource_ref) REFERENCES resource(id)
-               ON UPDATE CASCADE,
+               ON UPDATE CASCADE ON DELETE CASCADE,
        FOREIGN KEY (org_ref) REFERENCES org(id)
                ON UPDATE CASCADE,
        FOREIGN KEY (sector_code) REFERENCES sector(code)

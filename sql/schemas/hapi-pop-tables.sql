@@ -22,7 +22,7 @@ CREATE TABLE population (
        reference_period_end DATETIME DEFAULT NULL,
        source_data TEXT,
        FOREIGN KEY (resource_ref) REFERENCES resource(id)
-               ON UPDATE CASCADE,
+               ON UPDATE CASCADE ON DELETE CASCADE,
        FOREIGN KEY (admin2_ref) REFERENCES admin2(id)
                ON UPDATE CASCADE,
        FOREIGN KEY (gender_code) REFERENCES gender(code)
