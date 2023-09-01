@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [1.1.2] - 2023-09-01
+
+### Fixed 
+
+- Add location code to views  
+
+
 ## [1.1.1] - 2023-09-01
 
 ### Fixed 
