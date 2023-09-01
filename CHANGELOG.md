@@ -4,14 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [1.1] - 2023-08-31
+## [1.1.1] - 2023-09-01
+
+### Fixed 
+
+- Specified all foreign key references
+
+## [1.1.0] - 2023-08-31
 
 ### Changed
 
 - Table and view names changed to snake case for better compatability
   with PostgreSQL
 
-## [1.0] - 2023-08-24
+## [1.0.0] - 2023-08-24
 
 ### Changed
 
