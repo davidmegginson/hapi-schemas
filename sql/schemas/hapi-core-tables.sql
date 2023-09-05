@@ -8,7 +8,7 @@
 --
 -- For auto incrementing primary keys, use:
 -- PostgreSQL: SERIAL PRIMARY KEY
--- sqlite: INTEGER PRIMARY KEY
+-- sqlite: SERIAL PRIMARY KEY
 -- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
@@ -20,7 +20,7 @@
 --
 
 CREATE TABLE dataset (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        title VARCHAR(1024) NOT NULL,
@@ -36,13 +36,13 @@ CREATE INDEX dataset_provider_name_index
 ON dataset(provider_name);
 
 CREATE TABLE resource (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        dataset_ref INT NOT NULL,
        hdx_link VARCHAR(512) UNIQUE NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        filename VARCHAR(256) NOT NULL,
        format VARCHAR(32) NOT NULL,
-       update_date DATETIME NOT NULL,
+       update_date TIMESTAMP NOT NULL,
        is_hxl BOOLEAN NOT NULL,
        api_link VARCHAR(1024) UNIQUE NOT NULL,
        FOREIGN KEY(dataset_ref) REFERENCES dataset(id)
@@ -63,8 +63,8 @@ ON resource(is_hxl);
 CREATE TABLE sector (
        code VARCHAR(32) PRIMARY KEY UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL
 );
 
 CREATE INDEX sector_name_index
@@ -79,13 +79,13 @@ CREATE TABLE org_type (
 );
 
 CREATE TABLE org (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
        org_type_code VARCHAR(32),
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL,
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL,
        FOREIGN KEY (org_type_code) REFERENCES org_type(code)
                ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -105,33 +105,33 @@ ON org(reference_period_start);
 --
 
 CREATE TABLE location (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL
 );
 
 CREATE TABLE admin1 (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        location_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL,
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL,
        FOREIGN KEY(location_ref) REFERENCES location(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE admin2 (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        admin1_ref INT,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        is_unspecified BOOLEAN DEFAULT FALSE,
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL,
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL,
        FOREIGN KEY(admin1_ref) REFERENCES admin1(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
