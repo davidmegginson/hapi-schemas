@@ -1,3 +1,12 @@
+# PostgreSQL settings
+PG_CONTAINER_NAME=hapi-schema-db
+PG_DATABASE=hapi
+PG_USER=postgres
+PG_PASSWORD=postgres
+PG_PORT=5432
+PG_HOST=localhost
+
+# Directories
 SQLITE_CMD=/usr/bin/sqlite3
 SCHEMA_DIR=./sql/schemas
 VIEW_DIR=./sql/views
@@ -19,23 +28,21 @@ CORE_DATA=${SAMPLE_DIR}/core-data.sql
 OP_DATA=${SAMPLE_DIR}/op-data.sql
 POP_DATA=${SAMPLE_DIR}/pop-data.sql
 
-# Info for a simple test database
-TEST_DATABASE=${DATABASE_DIR}/hapi-test.sqlite
-TEST_SCHEMAS=${CORE_SCHEMA} ${OP_SCHEMA} ${POP_SCHEMA}
-TEST_VIEWS=${CORE_VIEWS} ${OP_VIEW} ${POP_VIEW}
-TEST_DATA=${CORE_DATA} ${OP_DATA} ${POP_DATA}
+all: recreate-db
 
-all: test-database-recreate
+recreate-db:
+	@docker-compose down
+	@docker-compose up -d
+	@sleep 2  # Wait for PostgreSQL to start
+	@make setup-db
 
-test-database-create: ${TEST_DATABASE}
+setup-db: create-tables create-views insert-data
 
-test-database-delete:
-	rm -f ${TEST_DATABASE}
+create-tables:
+	@cat ${CORE_SCHEMA} ${OP_SCHEMA} ${POP_SCHEMA} | docker exec -i ${PG_CONTAINER_NAME} psql -U ${PG_USER} -d ${PG_DATABASE}
 
-test-database-recreate: test-database-delete test-database-create
+create-views:
+	@cat ${CORE_VIEWS} ${OP_VIEW} ${POP_VIEW} | docker exec -i ${PG_CONTAINER_NAME} psql -U ${PG_USER} -d ${PG_DATABASE}
 
-${TEST_DATABASE}: ${DATABASE_DIR} ${CORE_SCHEMA}
-	cat ${TEST_SCHEMAS} ${TEST_VIEWS} ${TEST_DATA} | ${SQLITE_CMD} ${TEST_DATABASE}
-
-${DATABASE_DIR}:
-	mkdir -p ${DATABASE_DIR}
+insert-data:
+	@cat ${CORE_DATA} ${OP_DATA} ${POP_DATA} | docker exec -i ${PG_CONTAINER_NAME} psql -U ${PG_USER} -d ${PG_DATABASE}
