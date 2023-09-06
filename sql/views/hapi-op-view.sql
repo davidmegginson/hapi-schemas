@@ -8,7 +8,6 @@
 
 DROP VIEW IF EXISTS operational_presence_view;
 
--- TODO: fill in fields
 CREATE VIEW operational_presence_view AS
 SELECT OP.*,
        D.code AS dataset_code,
