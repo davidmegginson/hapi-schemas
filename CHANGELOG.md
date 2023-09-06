@@ -4,16 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [1.1.2] - 2023-09-01
+## [1.1.2] - 2023-09-06
 
-### Fixed 
+### Fixed
 
-- Add location code to views  
-
+- Removed duplicate field sector_code in operational_presence_view
+- Add location code back to views
 
 ## [1.1.1] - 2023-09-01
 
-### Fixed 
+### Fixed
 
 - Specified all foreign key references
 
