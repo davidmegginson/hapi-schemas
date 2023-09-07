@@ -23,6 +23,7 @@ SELECT POP.*,
        ADM2.is_unspecified AS admin2_is_unspecified,
        ADM1.name AS admin1_name,
        ADM1.is_unspecified AS admin1_is_unspecified,
+       LOC.code AS location_code,
        LOC.name AS location_name
 FROM population POP
 LEFT JOIN resource R ON POP.resource_ref=R.id

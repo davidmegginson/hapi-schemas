@@ -58,6 +58,7 @@ SELECT ADM2.*,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.reference_period_start AS admin1_reference_period_start,
        ADM1.reference_period_end AS admin1_reference_period_end,
+       LOC.code AS location_code,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
@@ -70,6 +71,7 @@ DROP VIEW IF EXISTS admin1_view;
 
 CREATE VIEW admin1_view AS
 SELECT ADM1.*,
+       LOC.code AS location_code,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
