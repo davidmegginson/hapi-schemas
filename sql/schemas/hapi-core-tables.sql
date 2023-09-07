@@ -21,7 +21,7 @@
 
 CREATE TABLE dataset (
        id INTEGER PRIMARY KEY,
-       code VARCHAR(36) UNIQUE NOT NULL,
+       hdx_id VARCHAR(36) UNIQUE NOT NULL,
        hdx_stub VARCHAR(128) UNIQUE NOT NULL,
        title VARCHAR(1024) NOT NULL,
        provider_code VARCHAR(128) NOT NULL,
@@ -37,7 +37,7 @@ ON dataset(provider_name);
 CREATE TABLE resource (
        id INTEGER PRIMARY KEY,
        dataset_ref INT NOT NULL,
-       code VARCHAR(36) UNIQUE NOT NULL,
+       hdx_id VARCHAR(36) UNIQUE NOT NULL,
        filename VARCHAR(256) NOT NULL,
        format VARCHAR(32) NOT NULL,
        update_date DATETIME NOT NULL,
