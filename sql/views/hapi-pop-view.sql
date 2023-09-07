@@ -12,6 +12,7 @@ DROP VIEW IF EXISTS population_view;
 CREATE VIEW population_view AS
 SELECT POP.*,
        D.code AS dataset_code,
+       D.hdx_stub as dataset_hdx_stub,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name,

@@ -11,6 +11,7 @@ DROP VIEW IF EXISTS operational_presence_view;
 CREATE VIEW operational_presence_view AS
 SELECT OP.*,
        D.code AS dataset_code,
+       D.hdx_stub as dataset_hdx_stub,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name,

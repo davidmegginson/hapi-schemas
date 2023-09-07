@@ -19,11 +19,9 @@ DROP VIEW IF EXISTS resource_view;
 
 CREATE VIEW resource_view AS
 SELECT R.*,
-       D.hdx_link AS dataset_hdx_link,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name,
-       D.api_link AS dataset_provider_link
 FROM resource R
 LEFT JOIN dataset D ON R.dataset_ref=D.id;
 
