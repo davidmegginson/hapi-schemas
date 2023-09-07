@@ -9,8 +9,8 @@
 
 INSERT INTO dataset (id, code, hdx_stub, title, provider_code, provider_name)
 VALUES
-(1, 'dataset01', 'c3f001fa-b45b-464c-9460-1ca79fd39b40', 'Dataset #1', 'provider01', 'Provider #1'),
-(2, 'dataset02', '7cf3cec8-dbbc-4c96-9762-1464cd0bff75', 'Dataset #2', 'provider02', 'Provider #2');
+(1, 'c3f001fa-b45b-464c-9460-1ca79fd39b40', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1'),
+(2, '7cf3cec8-dbbc-4c96-9762-1464cd0bff75', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2');
 
 INSERT INTO resource (id, dataset_ref, code, filename, format, update_date, is_hxl)
 VALUES
