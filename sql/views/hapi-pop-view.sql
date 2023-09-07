@@ -8,7 +8,6 @@
 
 DROP VIEW IF EXISTS population_view;
 
--- TODO fill in fields
 CREATE VIEW population_view AS
 SELECT POP.*,
        D.code AS dataset_code,

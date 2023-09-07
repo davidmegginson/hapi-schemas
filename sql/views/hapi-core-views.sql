@@ -21,7 +21,7 @@ CREATE VIEW resource_view AS
 SELECT R.*,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
-       D.provider_name AS dataset_provider_name,
+       D.provider_name AS dataset_provider_name
 FROM resource R
 LEFT JOIN dataset D ON R.dataset_ref=D.id;
 
