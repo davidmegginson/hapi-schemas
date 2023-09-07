@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - removed *_link fields (they can be constructed in the API layer)
+- add download_url to resource table
 - dataset and resource codes set to VARCHAR(36) (instead of 128)
 - column hdx_stub added to dataset table
 - rename code to hdx_id in the resource and dataset tables

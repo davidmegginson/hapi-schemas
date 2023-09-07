@@ -42,6 +42,7 @@ CREATE TABLE resource (
        format VARCHAR(32) NOT NULL,
        update_date DATETIME NOT NULL,
        is_hxl BOOLEAN NOT NULL,
+       download_url VARCHAR(1024) UNIQUE NOT NULL,
        FOREIGN KEY(dataset_ref) REFERENCES dataset(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
