@@ -7,16 +7,16 @@
 -- Started 2023-08-09
 -- ---------------------------------------------------------------------
 
-INSERT INTO dataset (id, hdx_link, code, title, provider_code, provider_name, api_link)
+INSERT INTO dataset (id, code, title, provider_code, provider_name)
 VALUES
-(1, 'https://example.org/dataset01', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1', 'https://example.org/api/dataset01'),
-(2, 'https://example.org/dataset02', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2', 'https://example.org/api/dataset02');
+(1, 'dataset01', 'Dataset #1', 'provider01', 'Provider #1'),
+(2, 'dataset02', 'Dataset #2', 'provider02', 'Provider #2');
 
-INSERT INTO resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
+INSERT INTO resource (id, dataset_ref, code, filename, format, update_date, is_hxl)
 VALUES
-(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'csv', '2023-06-01 00:00:00', TRUE, 'https://example.org/api/resource01'),
-(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01 00:00:00', TRUE, 'https://example.org/api/resource02'),
-(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'csv', '2023-08-01 00:00:00', TRUE, 'https://example.org/api/resource03');
+(1, 1, 'resource01', 'resource-01.csv', 'csv', '2023-06-01 00:00:00', TRUE),
+(2, 1, 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01 00:00:00', TRUE),
+(3, 2, 'resource03', 'resource-03.csv', 'csv', '2023-08-01 00:00:00', TRUE);
 
 -- these are the actual datatypes from
 -- https://data.humdata.org/dataset/organization-types-beta
@@ -37,10 +37,10 @@ INSERT INTO org_type (code, description) VALUES
 ('447', 'United Nations');
 
 -- dummy data
-INSERT INTO org (id, hdx_link, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
-(1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01 00:00:00', NULL),
-(2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01 00:00:00', NULL),
-(3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01 00:00:00', NULL);
+INSERT INTO org (id, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
+(1, 'ORG01', 'Organisation 1', '433', '2023-08-01 00:00:00', NULL),
+(2, 'ORG02', 'Organisation 2', '437', '2023-07-01 00:00:00', NULL),
+(3, 'ORG03', 'Organisation 3', '447', '2023-06-01 00:00:00', NULL);
 
 -- these are the actual sector codes from
 -- https://data.humdata.org/dataset/global-coordination-groups-beta

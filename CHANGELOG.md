@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Removed duplicate field sector_code in operational_presence_view
 - Add location code back to views
 
+### Changed
+
+- removed *_link fields (they can be constructed in the API layer)
+
 ## [1.1.1] - 2023-09-01
 
 ### Fixed
