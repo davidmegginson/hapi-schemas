@@ -8,14 +8,14 @@
 
 DROP VIEW IF EXISTS population_view;
 
--- TODO fill in fields
 CREATE VIEW population_view AS
 SELECT POP.*,
-       D.code AS dataset_code,
+       D.hdx_id AS dataset_hdx_id,
+       D.hdx_stub as dataset_hdx_stub,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name,
-       R.code AS resource_code,
+       R.hdx_id AS resource_hdx_id,
        R.filename AS resource_filename,
        R.update_date AS resource_update_date,
        G.description AS gender_description,
