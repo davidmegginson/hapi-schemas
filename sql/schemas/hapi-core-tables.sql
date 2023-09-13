@@ -21,12 +21,11 @@
 
 CREATE TABLE dataset (
        id SERIAL PRIMARY KEY,
-       hdx_link VARCHAR(512) UNIQUE NOT NULL,
-       code VARCHAR(128) UNIQUE NOT NULL,
+       hdx_id VARCHAR(36) UNIQUE NOT NULL,
+       hdx_stub VARCHAR(128) UNIQUE NOT NULL,
        title VARCHAR(1024) NOT NULL,
        provider_code VARCHAR(128) NOT NULL,
-       provider_name VARCHAR(512) NOT NULL,
-       api_link VARCHAR(1024) UNIQUE NOT NULL
+       provider_name VARCHAR(512) NOT NULL
 );
 
 CREATE INDEX dataset_provider_code_index
@@ -38,13 +37,12 @@ ON dataset(provider_name);
 CREATE TABLE resource (
        id SERIAL PRIMARY KEY,
        dataset_ref INT NOT NULL,
-       hdx_link VARCHAR(512) UNIQUE NOT NULL,
-       code VARCHAR(128) UNIQUE NOT NULL,
+       hdx_id VARCHAR(36) UNIQUE NOT NULL,
        filename VARCHAR(256) NOT NULL,
        format VARCHAR(32) NOT NULL,
        update_date TIMESTAMP NOT NULL,
        is_hxl BOOLEAN NOT NULL,
-       api_link VARCHAR(1024) UNIQUE NOT NULL,
+       download_url VARCHAR(1024) UNIQUE NOT NULL,
        FOREIGN KEY(dataset_ref) REFERENCES dataset(id)
               ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -80,7 +78,6 @@ CREATE TABLE org_type (
 
 CREATE TABLE org (
        id SERIAL PRIMARY KEY,
-       hdx_link VARCHAR(1024) NOT NULL,
        acronym VARCHAR(32) NOT NULL,
        name VARCHAR(512) NOT NULL,
        org_type_code VARCHAR(32),

@@ -7,16 +7,22 @@
 -- Started 2023-08-09
 -- ---------------------------------------------------------------------
 
-INSERT INTO dataset (id, hdx_link, code, title, provider_code, provider_name, api_link)
+INSERT INTO dataset (id, hdx_id, hdx_stub, title, provider_code, provider_name)
 VALUES
-(1, 'https://example.org/dataset01', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1', 'https://example.org/api/dataset01'),
-(2, 'https://example.org/dataset02', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2', 'https://example.org/api/dataset02');
+(1, 'c3f001fa-b45b-464c-9460-1ca79fd39b40', 'dataset01', 'Dataset #1', 'provider01', 'Provider #1'),
+(2, '7cf3cec8-dbbc-4c96-9762-1464cd0bff75', 'dataset02', 'Dataset #2', 'provider02', 'Provider #2');
 
-INSERT INTO resource (id, dataset_ref, hdx_link, code, filename, format, update_date, is_hxl, api_link)
+INSERT INTO resource (id, dataset_ref, hdx_id, filename, format, update_date, download_url, is_hxl)
 VALUES
-(1, 1, 'https://example.org/resource01', 'resource01', 'resource-01.csv', 'csv', '2023-06-01 00:00:00', TRUE, 'https://example.org/api/resource01'),
-(2, 1, 'https://example.org/resource02', 'resource02', 'resource-02.xlsx', 'xlsx', '2023-07-01 00:00:00', TRUE, 'https://example.org/api/resource02'),
-(3, 2, 'https://example.org/resource03', 'resource03', 'resource-03.csv', 'csv', '2023-08-01 00:00:00', TRUE, 'https://example.org/api/resource03');
+(1, 1, '90deb235-1bf5-4bae-b231-3393222c2d01', 'resource-01.csv', 'csv', '2023-06-01 00:00:00',
+'https://data.humdata.org/dataset/c3f001fa-b45b-464c-9460-1ca79fd39b40/resource/90deb235-1bf5-4bae-b231-3393222c2d01/download/resource-01.csv',
+ TRUE),
+(2, 1, 'b9e438e0-b68a-49f9-b9a9-68c0f3e93604', 'resource-02.xlsx', 'xlsx', '2023-07-01 00:00:00',
+'https://fdw.fews.net/api/tradeflowquantityvaluefacts/?dataset=1845&country=TZ&fields=simple&format=xlsx',
+ TRUE),
+(3, 2, '62ad6e55-5f5d-4494-854c-4110687e9e25', 'resource-03.csv', 'csv', '2023-08-01 00:00:00',
+ 'https://data.humdata.org/dataset/7cf3cec8-dbbc-4c96-9762-1464cd0bff75/resource/62ad6e55-5f5d-4494-854c-4110687e9e25/download/resource-03.csv',
+ TRUE);
 
 -- these are the actual datatypes from
 -- https://data.humdata.org/dataset/organization-types-beta
@@ -37,10 +43,10 @@ INSERT INTO org_type (code, description) VALUES
 ('447', 'United Nations');
 
 -- dummy data
-INSERT INTO org (id, hdx_link, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
-(1, 'https://example.org/org01', 'ORG01', 'Organisation 1', '433', '2023-08-01 00:00:00', NULL),
-(2, 'https://example.org/org02', 'ORG02', 'Organisation 2', '437', '2023-07-01 00:00:00', NULL),
-(3, 'https://example.org/org03', 'ORG03', 'Organisation 3', '447', '2023-06-01 00:00:00', NULL);
+INSERT INTO org (id, acronym, name, org_type_code, reference_period_start, reference_period_end) VALUES
+(1, 'ORG01', 'Organisation 1', '433', '2023-08-01 00:00:00', NULL),
+(2, 'ORG02', 'Organisation 2', '437', '2023-07-01 00:00:00', NULL),
+(3, 'ORG03', 'Organisation 3', '447', '2023-06-01 00:00:00', NULL);
 
 -- these are the actual sector codes from
 -- https://data.humdata.org/dataset/global-coordination-groups-beta

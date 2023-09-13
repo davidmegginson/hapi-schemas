@@ -10,11 +10,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Switch from sqlite to PostgreSQL
   
-## [1.1.2] - 2023-09-05
+## [1.1.2] - 2023-09-06
 
 ### Fixed
 
 - Removed duplicate field sector_code in operational_presence_view
+- Add location code back to views
+
+### Changed
+
+- removed *_link fields (they can be constructed in the API layer)
+- add download_url to resource table
+- dataset and resource codes set to VARCHAR(36) (instead of 128)
+- column hdx_stub added to dataset table
+- rename code to hdx_id in the resource and dataset tables
 
 ## [1.1.1] - 2023-09-01
 

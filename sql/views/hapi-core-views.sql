@@ -19,11 +19,9 @@ DROP VIEW IF EXISTS resource_view;
 
 CREATE VIEW resource_view AS
 SELECT R.*,
-       D.hdx_link AS dataset_hdx_link,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
-       D.provider_name AS dataset_provider_name,
-       D.api_link AS dataset_provider_link
+       D.provider_name AS dataset_provider_name
 FROM resource R
 LEFT JOIN dataset D ON R.dataset_ref=D.id;
 
@@ -58,6 +56,7 @@ SELECT ADM2.*,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.reference_period_start AS admin1_reference_period_start,
        ADM1.reference_period_end AS admin1_reference_period_end,
+       LOC.code AS location_code,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
@@ -70,6 +69,7 @@ DROP VIEW IF EXISTS admin1_view;
 
 CREATE VIEW admin1_view AS
 SELECT ADM1.*,
+       LOC.code AS location_code,
        LOC.name AS location_name,
        LOC.reference_period_start AS location_reference_period_start,
        LOC.reference_period_end AS location_reference_period_end
