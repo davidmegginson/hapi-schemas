@@ -8,7 +8,7 @@
 --
 -- For auto incrementing primary keys, use:
 -- PostgreSQL: SERIAL PRIMARY KEY
--- sqlite: SERIAL PRIMARY KEY
+-- sqlite: INTEGER PRIMARY KEY
 -- ANSI SQL: GENERATED ALWAYS AS IDENTITY
 -- ---------------------------------------------------------------------
 
