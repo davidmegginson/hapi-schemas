@@ -30,6 +30,9 @@ POP_DATA=${SAMPLE_DIR}/pop-data.sql
 
 all: recreate-db
 
+explore:
+	@docker exec -it ${PG_CONTAINER_NAME} psql -U ${PG_USER} -d ${PG_DATABASE}
+
 recreate-db:
 	@docker-compose down
 	@docker-compose up -d
