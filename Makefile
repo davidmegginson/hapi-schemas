@@ -39,7 +39,15 @@ recreate-db:
 	@sleep 2  # Wait for PostgreSQL to start
 	@make setup-db
 
+empty:
+	@docker-compose down
+	@docker-compose up -d
+	@sleep 2  # Wait for PostgreSQL to start
+	@make setup-empty-db
+
 setup-db: create-tables create-views insert-data
+
+setup-empty-db: create-tables create-views
 
 create-tables:
 	@cat ${CORE_SCHEMA} ${OP_SCHEMA} ${POP_SCHEMA} | docker exec -i ${PG_CONTAINER_NAME} psql -U ${PG_USER} -d ${PG_DATABASE}

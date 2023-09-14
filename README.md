@@ -25,6 +25,12 @@ To create a test database with simple sample data:
 $ make
 ```
 
+It is also possible to make an empty database for testing:
+
+```
+$ make empty
+```
+
 Note that the database username and password are hard-coded directly in
 the docker-compose file, as it's only meant for testing. Also, the
 database will be mounted to `$HOME/postgres_data`.
