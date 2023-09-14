@@ -12,14 +12,14 @@
 -- ---------------------------------------------------------------------
 
 CREATE TABLE population (
-       id INTEGER PRIMARY KEY,
+       id SERIAL PRIMARY KEY,
        resource_ref INT NOT NULL,
        admin2_ref INT NOT NULL,
        gender_code CHAR(1),
        age_range_code VARCHAR(32),
        population INT NOT NULL,
-       reference_period_start DATETIME NOT NULL,
-       reference_period_end DATETIME DEFAULT NULL,
+       reference_period_start TIMESTAMP NOT NULL,
+       reference_period_end TIMESTAMP DEFAULT NULL,
        source_data TEXT,
        FOREIGN KEY (resource_ref) REFERENCES resource(id)
                ON UPDATE CASCADE ON DELETE CASCADE,

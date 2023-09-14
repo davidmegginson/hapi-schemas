@@ -9,22 +9,30 @@ development and testing, but may/should also work with PostgreSQL.
 
 ## Prerequisites
 
-- SQLite3 database manager.
+- Docker 
 - Unix _make_ command
 
 ## Usage
 
-To create a test database in ``databases/hapi-test.sql`` with simple
-sample data:
+Download the PostgreSQL docker image:
+
+```shell
+$ docker pull postgres
+```
+To create a test database with simple sample data:
 
 ```
 $ make
 ```
 
+Note that the database username and password are hard-coded directly in
+the docker-compose file, as it's only meant for testing. Also, the
+database will be mounted to `$HOME/postgres_data`.
+
 To explore the database:
 
 ```
-$ sqlite3 databases/hapi-test.sql
+$ docker exec -it hapi-schema-db psql -U postgres -d hapi
 ```
 
 ## Design notes
