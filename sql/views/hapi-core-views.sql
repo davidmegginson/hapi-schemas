@@ -54,6 +54,7 @@ DROP VIEW IF EXISTS admin2_view;
 
 CREATE VIEW admin2_view AS
 SELECT ADM2.*,
+       ADM1.code AS admin1_code,
        ADM1.name AS admin1_name,
        ADM1.is_unspecified AS admin1_is_unspecified,
        ADM1.reference_period_start AS admin1_reference_period_start,
