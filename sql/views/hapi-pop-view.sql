@@ -19,12 +19,14 @@ SELECT POP.*,
        R.filename AS resource_filename,
        R.update_date AS resource_update_date,
        G.description AS gender_description,
-       ADM2.name AS admin2_name,
-       ADM2.is_unspecified AS admin2_is_unspecified,
+       LOC.code AS location_code,
+       LOC.name AS location_name,
+       ADM1.code AS admin1_code,
        ADM1.name AS admin1_name,
        ADM1.is_unspecified AS admin1_is_unspecified,
-       LOC.code AS location_code,
-       LOC.name AS location_name
+       ADM2.code AS admin2_code,
+       ADM2.name AS admin2_name,
+       ADM2.is_unspecified AS admin2_is_unspecified
 FROM population POP
 LEFT JOIN resource R ON POP.resource_ref=R.id
 LEFT JOIN dataset D ON R.dataset_ref=D.id
