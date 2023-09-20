@@ -19,6 +19,8 @@ DROP VIEW IF EXISTS resource_view;
 
 CREATE VIEW resource_view AS
 SELECT R.*,
+       D.hdx_id AS dataset_hdx_id,
+       D.hdx_stub AS dataset_hdx_stub,
        D.title AS dataset_title,
        D.provider_code AS dataset_provider_code,
        D.provider_name AS dataset_provider_name
