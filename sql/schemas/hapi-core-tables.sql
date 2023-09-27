@@ -111,7 +111,7 @@ CREATE TABLE location (
 
 CREATE TABLE admin1 (
        id SERIAL PRIMARY KEY,
-       location_ref INT,
+       location_ref INT NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        is_unspecified BOOLEAN DEFAULT FALSE,
@@ -123,7 +123,7 @@ CREATE TABLE admin1 (
 
 CREATE TABLE admin2 (
        id SERIAL PRIMARY KEY,
-       admin1_ref INT,
+       admin1_ref INT NOT NULL,
        code VARCHAR(128) UNIQUE NOT NULL,
        name VARCHAR(512) NOT NULL,
        is_unspecified BOOLEAN DEFAULT FALSE,
